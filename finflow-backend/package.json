@@ -1,0 +1,33 @@
+{
+  "name": "finflow-backend",
+  "version": "2.0.0",
+  "description": "FinFlow Finance Dashboard API — Node.js + Express + MongoDB + MCP",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "mcp": "node src/mcp/server.js",
+    "eval": "node src/evals/run_evals.js",
+    "seed": "node src/seed.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "axios": "^1.6.7",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^8.5.2",
+    "express-validator": "^7.3.2",
+    "groq-sdk": "^1.1.1",
+    "helmet": "^8.2.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.1.1",
+    "nodemailer": "^8.0.3",
+    "resend": "^6.14.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}

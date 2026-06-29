@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  --bg:       #849190;
+  --surface:  #ffffff;
+  --surface2: #f2f0ed;
+  --border:   rgba(0,0,0,0.08);
+  --accent:   #EC5677;
+  --accent2:  #B2D579;
+  --accent3:  #EEBE0D;
+  --accent4:  #ADE6D5;
+  --accent5:  #D7A889;
+  --crimson:  #B91126;
+  --mauve:    #AC9196;
+  --text:     #1a1a1a;
+  --muted:    #6b6b6b;
+  --danger:   #B91126;
+  --success:  #B2D579;
+  --warning:  #EEBE0D;
+  --radius:   16px;
+  --font-serif: 'Playfair Display', serif;
+  --font-sans:  'DM Sans', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #f8f6f3;
+  color: #1a1a1a;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #EC5677; border-radius: 4px; }
+
+button { cursor: pointer; font-family: var(--font-sans); }
+input, textarea, select { font-family: var(--font-sans); }
+a { text-decoration: none; color: inherit; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50%       { opacity: 1; }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.animate-in    { animation: fadeInUp 0.5s ease both; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08) !important;
+}
+
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }

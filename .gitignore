@@ -1,0 +1,59 @@
+# ─── Dependencies ───────────────────────────────
+node_modules/
+*/node_modules/
+.npm
+.pnp
+.pnp.js
+.yarn-integrity
+
+# ─── Environment variables — NEVER commit ANY of these ───
+.env
+.env.*
+*.env
+*.env.*
+.env.example
+*/.env
+*/.env.*
+*/.env.example
+
+# ─── Secrets / keys (extra safety) ──────────────
+*.pem
+*.key
+*.cert
+*.p12
+secrets.json
+credentials.json
+
+# ─── Build outputs ──────────────────────────────
+dist/
+build/
+.vite/
+*/dist/
+*/build/
+
+# ─── Logs ───────────────────────────────────────
+logs/
+*/logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ─── OS files ───────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── IDE / editor ───────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ─── Docker volumes (local) ─────────────────────
+mongodb_data/
+
+# ─── Generated / reports ────────────────────────
+finflow-backend/src/evals/eval_report.json
+coverage/
+.cache/

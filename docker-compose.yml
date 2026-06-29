@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: finflow-mongodb
+    restart: always
+    # No public port — DB only reachable inside docker network
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - finflow-network
+
+  backend:
+    build:
+      context: ./finflow-backend
+      dockerfile: Dockerfile
+    container_name: finflow-backend
+    restart: always
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./finflow-backend/.env
+    environment:
+      - MONGO_URI=mongodb://${MONGO_USER}:${MONGO_PASSWORD}@mongodb:27017/finflow?authSource=admin
+      - PORT=5000
+      - CLIENT_URL=http://localhost
+    depends_on:
+      - mongodb
+    networks:
+      - finflow-network
+
+  frontend:
+    build:
+      context: ./finflow-frontend
+      dockerfile: Dockerfile
+    container_name: finflow-frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - finflow-network
+
+volumes:
+  mongodb_data:
+
+networks:
+  finflow-network:
+    driver: bridge
